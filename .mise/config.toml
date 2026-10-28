@@ -1,0 +1,23 @@
+[tools]
+jactionlint = "2.3.0"
+node = "26.12.1"
+oxfmt = "0.74.0"
+# @yarnpkg/libzip 3.2.2 shipped without provenance where 3.2.0 had it, so mise's
+# no-downgrade trust policy refuses the whole tree. It reaches us through
+# @yarnpkg/core, which requires ^3.2.2 — the floor, so no renovate version can
+# resolve past it. Drop the exclude once upstream publishes an attested release.
+"npm:renovate" = { version = "44.181.6", trust_policy_excludes = [
+  "@yarnpkg/libzip",
+] }
+shellcheck = "0.11.0"
+
+[tasks."lint"]
+description = "Check JSON/JSON5, YAML, Markdown, and shell formatting"
+run = [
+  "oxfmt --check .",
+  "git ls-files -co --exclude-standard '*.sh' | xargs -r shellcheck",
+]
+
+[tasks.validate]
+description = "Validate Renovate presets against the schema"
+run = "renovate-config-validator --strict"
