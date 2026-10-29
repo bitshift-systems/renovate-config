@@ -29,7 +29,7 @@
       // Match the github-actions manager's conventions from groups.json5 and
       // semanticCommits.json5 so these PRs look like every other action bump.
       matchManagers: ["custom.regex"],
-      matchPackageNames: ["home-operations/.github"],
+      matchPackageNames: ["bitshift-systems/.github"],
       groupName: "github-actions",
       semanticCommitType: "ci",
       semanticCommitScope: "github-action",
