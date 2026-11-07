@@ -1,6 +1,6 @@
 [tools]
 jactionlint = "2.3.0"
-node = "26.12.1"
+node = "26.13.0"
 oxfmt = "0.74.0"
 # @yarnpkg/libzip 3.2.2 shipped without provenance where 3.2.0 had it, so mise's
 # no-downgrade trust policy refuses the whole tree. It reaches us through
